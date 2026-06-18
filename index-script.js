@@ -1,19 +1,5 @@
 $(document).ready(function() {
 
-    // Prevents the page from scrolling to anchor on load
-    if (window.location.hash) {
-        window.location.hash = '';
-    }
-
-    // Smooth scroll to search section
-    $('#pressScrollSearch').click(function(e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        
-        $('html, body').animate({
-            scrollTop: $('#searchFlightContainer').offset().top - 80 // 80px offset for navbar
-        }, 800); // 800ms scroll speed
-    });
-
     const airlines = [
         { 
             name: 'Philippine Airlines', 
