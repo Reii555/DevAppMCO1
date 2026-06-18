@@ -25,14 +25,72 @@ body {
     margin-top: 20px;
 }
 
-.firstContainerBtn {
-    
+#pressScrollSearch {
+    background-color: #3b6ea8;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
 }
 
 /* Search Flight */
 #searchFlightContainer {
     background: #a0b5d9;
     padding: 30px;
+}
+
+#searchFlightContainer h2 {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* Style the form labels */
+#searchFlightContainer .form-label {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+/* Style the form inputs */
+#searchFlightContainer .form-control {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 10px 14px;
+    transition: border-color 0.2s;
+}
+
+#searchFlightContainer .form-control:focus {
+    border-color: #5686c9;
+    box-shadow: 0 0 0 3px rgba(86, 134, 201, 0.15);
+}
+
+#grpSearchContainer {
+    background-color: #446ba1;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(86, 134, 201, 0.15);
+}
+
+#grpSearchContainer label {
+    color: white;
+    margin-bottom: 5px;
+}
+
+/* Style the search button */
+#searchFlightContainer .btn-primary {
+    background: #5686c9;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 600;
+    transition: background 0.2s;
+    height: 42px;
+    margin-bottom: 10px;
+}
+
+#searchFlightContainer .btn-primary:hover {
+    background: #4774b4;
 }
 
 /* Popular Destination Showcase*/
