@@ -110,7 +110,7 @@ $(document).ready(function() {
             // Status badge or dropdown based on editMode
             let statusHtml = '';
             if (editMode) {
-                // Show dropdown when in edit mode (no save button)
+                // Show dropdown when in edit mode
                 statusHtml = `
                     <select class="form-select form-select-sm status-dropdown" 
                             data-booking="${reservation.booking_ref}" 
@@ -239,7 +239,7 @@ $(document).ready(function() {
         $('#nextPage').prop('disabled', currentPage >= totalPages);
     }
 
-    // event handlerz
+    // event handlers
 
     $('#editReservationBtn').click(function() {
         // Toggle edit mode
