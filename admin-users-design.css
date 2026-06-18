@@ -127,21 +127,6 @@ body {
     color: white;
 }
 
-/* side bar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 100vh;
-    background: white;
-    border-right: 1px solid #e9edf2;
-    padding: 80px 20px 30px;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
-    z-index: 999;
-}
-
 .sidebar-nav {
     display: flex;
     flex-direction: column;
