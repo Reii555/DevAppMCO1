@@ -48,7 +48,6 @@
 
                     <div class="sidebar-menu">
                         <h4><a href="admin-dashboard.html">Dashboard</a></h4>
-                        <h4><a href="#">Analytics</a></h4>
                         <h4>Manage</h4>
 
                         <h4><a href="admin-flights.html">Flights</a></h4>
@@ -121,7 +120,7 @@
                                 </div>
 
                                 <div class="col-md-2">
-                                    <select class="sortFlights" id="sortFlight" placeholder="Sort by...">
+                                    <select class="sortFlights" id="sortFlights" placeholder="Sort by...">
                                         <option value="flightId">Flight ID</option>
                                         <option value="airline">Airline</option>
                                         <option value="status">Status</option>
@@ -208,62 +207,67 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Flight ID</label>
-                                                    <input type="text" class="form-control" id="flightId">
+                                                    <label class="form-label" for="flightId">Flight ID</label>
+                                                    <input type="text" class="form-control" id="flightId" required>
                                                     <div class="text-danger small" id="flightIdError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label">Airline</label>
-                                                    <input type="text" class="form-control" id="airline">
+                                                    <label class="form-label" for="airline">Airline</label>
+                                                    <input type="text" class="form-control" id="airline" required>
                                                     <div class="text-danger small" id="airlineError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label">Route</label>
-                                                    <input type="text" class="form-control" id="route" placeholder="MNL - LAX">
+                                                    <label class="form-label" for="route">Route</label>
+                                                    <input type="text" class="form-control" id="route" placeholder="MNL - LAX" required>
                                                     <div class="text-danger small" id="routeError"></div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label class="form-label">Departure Time</label>
-                                                            <input type="date" class="form-control" id="departureDate">
-                                                            <input type="time" class="form-control" id="departureTime">
-                                                            <div class="text-danger small" id="DepartureError"></div>
+                                                            <label class="form-label" for="departureDate">Departure Date</label>
+                                                            <input type="date" class="form-control" id="departureDate" required>
+                                                            <label class="form-label" for="departureTime">Departure Time</label>
+                                                            <input type="time" class="form-control" id="departureTime" required>
+                                                            <div class="text-danger small" id="departureError"></div>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label class="form-label">Arrival Time</label>
-                                                            <input type="date" class="form-control" id="arrivalDate">
-                                                            <input type="time" class="form-control" id="arrivalTime">
+                                                            <label class="form-label" for="ArrivalDate">Arrival Date</label>
+                                                            <input type="date" class="form-control" id="arrivalDate" required>
+                                                            <label class="form-label" for="ArrivalTime">Arrival Time</label>
+                                                            <input type="time" class="form-control" id="arrivalTime" required>
                                                             <div class="text-danger small" id="arrivalError"></div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label">Available Seats</label>
-                                                    <input type="number" class="form-control" id="seats">
+                                                    <label class="form-label" for="seats">Available Seats</label>
+                                                    <input type="number" class="form-control" id="seats" required>
                                                     <div class="text-danger small" id="seatsError"></div>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label">Status</label>
-                                                    <select class="form-select" id="status">
+                                                    <label class="form-label" for="status">Status</label>
+                                                    <select class="form-select" id="status" required>
+                                                        <option value="">Select Status</option>
                                                         <option value="Active">Active</option>
                                                         <option value="Delayed">Delayed</option>
                                                         <option value="Cancelled">Cancelled</option>
+                                                        <div class="text-danger small" id="statusError"></div>
                                                     </select>
+                                                    <div class="text-danger small" id="statusError"></div>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="button" class="btn btn-primary" id="saveFlight">Save Flight</burron>
+                                                <button type="button" class="btn btn-primary" id="saveFlight">Save Flight</button>
                                             </div>
                                         </div>
 
