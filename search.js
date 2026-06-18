@@ -6,14 +6,12 @@ const flights = [
     destination: "Cebu (CEB)",
     departureTime: "06:00 AM",
     arrivalTime: "07:20 AM",
-    duration: "1h 20m",
+    duration: "2h 20m",
     layovers: 0,
-    seats: 42,
+    seats: 32,
     price: 5200,
-    baggage: {
-      checked: "20kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Free Rebooking"],
     layoverInfo: "Direct Flight"
   },
@@ -26,12 +24,10 @@ const flights = [
     arrivalTime: "10:45 AM",
     duration: "1h 30m",
     layovers: 0,
-    seats: 18,
+    seats: 28,
     price: 4100,
-    baggage: {
-      checked: "20kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Rebooking with fee"],
     layoverInfo: "Direct Flight"
   },
@@ -44,12 +40,10 @@ const flights = [
     arrivalTime: "02:00 PM",
     duration: "1h 30m",
     layovers: 0,
-    seats: 55,
+    seats: 35,
     price: 3800,
-    baggage: {
-      checked: "15kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Non-refundable"],
     layoverInfo: "Direct Flight"
   },
@@ -62,12 +56,10 @@ const flights = [
     arrivalTime: "05:10 PM",
     duration: "2h 10m",
     layovers: 1,
-    seats: 25,
+    seats: 35,
     price: 6100,
-    baggage: {
-      checked: "20kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Free Rebooking", "Refundable"],
     layoverInfo: "1 Stop (Davao)"
   },
@@ -80,12 +72,10 @@ const flights = [
     arrivalTime: "09:15 PM",
     duration: "1h 30m",
     layovers: 0,
-    seats: 12,
+    seats: 22,
     price: 4500,
-    baggage: {
-      checked: "20kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Rebooking with fee"],
     layoverInfo: "Direct Flight"
   },
@@ -100,10 +90,8 @@ const flights = [
     layovers: 0,
     seats: 33,
     price: 3500,
-    baggage: {
-      checked: "15kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Non-refundable"],
     layoverInfo: "Direct Flight"
   },
@@ -118,10 +106,8 @@ const flights = [
     layovers: 1,
     seats: 20,
     price: 7800,
-    baggage: {
-      checked: "30kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Free Rebooking", "Refundable"],
     layoverInfo: "1 Stop (Clark)"
   },
@@ -134,12 +120,10 @@ const flights = [
     arrivalTime: "01:20 AM",
     duration: "1h 30m",
     layovers: 0,
-    seats: 60,
+    seats: 24,
     price: 3999,
-    baggage: {
-      checked: "20kg",
-      carryOn: "7kg"
-    },
+    checked: "20kg",
+    carryOn: "7kg",
     fareRules: ["Promo Fare", "Non-refundable"],
     layoverInfo: "Direct Flight"
   }
@@ -151,7 +135,7 @@ function renderFlights(data) {
 
     container.empty();
 
-    if (data.length === 0) {
+    if (data.length == 0) {
         container.html("<p>No flights found.</p>");
         return;
     }
@@ -162,10 +146,7 @@ function renderFlights(data) {
         <div class="card shadow border-0 p-3 mb-3">
             <div class="row align-items-center mx-2">
 
-                <div class="col-md-12 mb-3">
-                    <img class="airline_logo"
-                        src="https://files01.pna.gov.ph/category-list/2025/09/03/pal.jpeg"
-                        alt="${flight.airline}">
+                <div class="col-md-12 mb-3 mt-3">
                     <strong>${flight.flightNumber}</strong> - ${flight.airline}
                 </div>
 
@@ -178,7 +159,7 @@ function renderFlights(data) {
                 </div>
 
                 <div class="col-md-6">
-                    <label class="form-label">Duration: ${flight.duration}</label>
+                    <label class="form-label"Flight Duration: ${flight.duration}</label>
                 </div>
 
                 <div class="col-md-6">
@@ -190,42 +171,44 @@ function renderFlights(data) {
                 </div>
 
                 <div class="col-md-12">
-                    <label class="form-label"><strong>₱${flight.price.toLocaleString()}</strong></label>
+                    <label class="form-label">₱${flight.price.toLocaleString()}</label>
                 </div>
 
-                <!-- Unique ID for each collapse -->
+            </div>
+
+              <div class="row align-items-center mx-2">
+
                 <div class="collapse mt-3" id="details-${index}">
                     <hr>
                     <h5>Flight Details</h5>
 
                     <label class="form-label">Baggage:</label>
-                    <ul>
-                        <li>${flight.baggage.checked} Checked-in</li>
-                        <li>${flight.baggage.carryOn} Carry-On</li>
+                    <ul class="form-label">
+                        <li>${flight.checked} Checked-in</li>
+                        <li>${flight.carryOn} Carry-On</li>
                     </ul>
 
                     <label class="form-label">Fare Rules:</label>
-                    <ul>
+                    <ul class="form-label">
                         ${flight.fareRules.map(rule => `<li>${rule}</li>`).join('')}
                     </ul>
 
                     <label class="form-label">Layover Information:</label>
-                    <ul>
+                    <ul class="form-label">
                         <li>${flight.layoverInfo}</li>
                     </ul>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="booking.html" class="btn btn-success w-100 mt-3">Book Flight</a>
+                    
                 </div>
 
-                <div class="col-md-6">
-                    <!-- data-bs-target matches the collapse ID -->
+                <div class="col-md-4">
                     <button class="btn btn-outline-success w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#details-${index}">
                         View Details
                     </button>
                 </div>
-
             </div>
         </div>
         `;
@@ -235,12 +218,51 @@ function renderFlights(data) {
     });
 }
 
+function sortFlights(data, type) {
+
+    let sorted = [...data];
+
+    switch(type) {
+
+        case "Price ↑":
+            sorted.sort((a, b) => a.price - b.price);
+            break;
+
+        case "Price ↓":
+            sorted.sort((a, b) => b.price - a.price);
+            break;
+
+        case "Departure Time ↑":
+            sorted.sort((a, b) => a.departureTime.localeCompare(b.departureTime));
+            break;
+
+        case "Departure Time ↓":
+            sorted.sort((a, b) => b.departureTime.localeCompare(a.departureTime));
+            break;
+
+        case "Durations ↑":
+            sorted.sort((a, b) => parseDuration(a.duration) - parseDuration(b.duration));
+            break;
+
+        case "Durations ↓":
+            sorted.sort((a, b) => parseDuration(b.duration) - parseDuration(a.duration));
+            break;
+    }
+
+    return sorted;
+}
+
 $(document).ready(function(){
 
     $("#searchBtn").click(function () {
-        console.log("clicked");
-
+       $("#resultsSection").show();
         renderFlights(flights);
+        
+    });
+
+    $("#sortSelect").on("change", function () {
+      let sorted = sortFlights(flights, $(this).val());
+      renderFlights(sorted);
     });
 
 });
