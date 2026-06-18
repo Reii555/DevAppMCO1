@@ -297,9 +297,151 @@
         </div>
      </div>
 
-    <!-- Aktib bookings using cardz -->
+    <!-- Flight Statistics -->
+     <div class="container-fluid my-5" id="flightStats">
+        <h2 class="text-center mb-4">Flight Statistics</h2>     
+    
+            <div class="row g-4">
+            <!-- Available Flights -->
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="availableFlights">1,247</h3>
+                        <p class="stat-label">Available Flights</p>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12.5%
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Active Bookings -->
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="activeBookings">3,892</h3>
+                        <p class="stat-label">Active Bookings</p>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8.3%
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Popular Destinations -->
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="popularDestinations">156</h3>
+                        <p class="stat-label">Popular Destinations</p>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 5.2%
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
 
     <!-- Promotion carousel -->
+     <div class="container-fluid my-5" id="promoCarousel">
+        <h2 class="text-center mb-4">Exclusive Promotions</h2>
+        
+        <div id="promoCarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#promoCarouselIndicators" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#promoCarouselIndicators" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#promoCarouselIndicators" data-bs-slide-to="2"></button>
+            </div>
+            
+            <!-- Slides -->
+            <div class="carousel-inner rounded-4">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="promo-slide" style="background: linear-gradient(135deg, #5686c9, #3b6ea8);">
+                        <div class="promo-content">
+                            <div class="promo-badge">
+                            <i class="fas fa-exclamation"></i>
+                            <i class="fas fa-exclamation"></i>
+                            FLASH SALE
+                            <i class="fas fa-exclamation"></i>
+                            <i class="fas fa-exclamation"></i>
+                            </div>
+                            <h2 class="promo-title">Up to 50% Off</h2>
+                            <p class="promo-desc">Book now and get exclusive discounts on all domestic flights</p>
+                            <div class="promo-code">
+                                <span>Use Code: </span>
+                                <strong>FLY50</strong>
+                            </div>
+                            <a href="#" class="btn btn-light btn-lg">Book Now</a>
+                        </div>
+                        <div class="promo-image">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="promo-slide" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                        <div class="promo-content">
+                            <div class="promo-badge"> LIMITED OFFER</div>
+                            <h2 class="promo-title">Summer Getaway</h2>
+                            <p class="promo-desc">Enjoy special rates on international flights this summer</p>
+                            <div class="promo-code">
+                                <span>Use Code: </span>
+                                <strong>SUMMER25</strong>
+                            </div>
+                            <a href="#" class="btn btn-light btn-lg">Explore Deals</a>
+                        </div>
+                        <div class="promo-image">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="promo-slide" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <div class="promo-content">
+                            <div class="promo-badge"> GROUP DEAL</div>
+                            <h2 class="promo-title">Family & Group Discount</h2>
+                            <p class="promo-desc">Bring your loved ones and save up to 30% on group bookings</p>
+                            <div class="promo-code">
+                                <span>Use Code: </span>
+                                <strong>GROUP30</strong>
+                            </div>
+                            <a href="#" class="btn btn-light btn-lg">View Offer</a>
+                        </div>
+                        <div class="promo-image">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#promoCarouselIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#promoCarouselIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+     </div>
 
     <!-- pno mag book -->
 
