@@ -231,10 +231,7 @@ $(document).ready(function() {
             populateUserTable();
         }
     });
-
-    // ============================================
-    // INITIAL RENDER - Load the table on page load
-    // ============================================
+    
     filterUsers();
 
     console.log(`Loaded ${users.length} users`);
