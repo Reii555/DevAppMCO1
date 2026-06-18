@@ -32,6 +32,83 @@ let flights = [
         arrivalTime: "08:00",
         seats: 35,
         status: "Active"
+    },
+    {
+        flightId: "AK777",
+        airline: "AirAsia",
+        route: "MNL - TPE",
+        departureDate: "2026-07-30",
+        departureTime: "10:00",
+        arrivalDate: "2026-07-30",
+        arrivalTime: "13:00",
+        seats: 35,
+        status: "Delayed"
+    },
+    {
+        flightId: "PR103",
+        airline: "Philippine Airlines",
+        route: "MNL - JFK",
+        departureDate: "2026-04-30",
+        departureTime: "10:00",
+        arrivalDate: "2026-05-1",
+        arrivalTime: "23:00",
+        seats: 40,
+        status: "Cancelled"
+    },
+    {
+        flightId: "5J217",
+        airline: "Cebu Pacific",
+        route: "MNL - SIN",
+        departureDate: "2026-03-30",
+        departureTime: "09:00",
+        arrivalDate: "2026-03-30",
+        arrivalTime: "14:00",
+        seats: 35,
+        status: "Active"
+    },
+    {
+        flightId: "5J204",
+        airline: "Cebu Pacific",
+        route: "MNL - CEB",
+        departureDate: "2026-05-27",
+        departureTime: "09:00",
+        arrivalDate: "2026-05-27",
+        arrivalTime: "10:45",
+        seats: 35,
+        status: "Cancelled"
+    },
+    {
+        flightId: "5J201",
+        airline: "Cebu Pacific",
+        route: "MNL - ISA",
+        departureDate: "2026-04-15",
+        departureTime: "09:00",
+        arrivalDate: "2026-04-15",
+        arrivalTime: "12:00",
+        seats: 25,
+        status: "Delayed"
+    },
+    {
+        flightId: "AK789",
+        airline: "AirAsia",
+        route: "MNL - HAN",
+        departureDate: "2026-08-19",
+        departureTime: "10:00",
+        arrivalDate: "2026-08-19",
+        arrivalTime: "12:45",
+        seats: 45,
+        status: "Active"
+    },
+    {
+        flightId: "PR111",
+        airline: "Philippine Airlines",
+        route: "MNL - LAX",
+        departureDate: "2026-09-11",
+        departureTime: "10:00",
+        arrivalDate: "2026-09-12",
+        arrivalTime: "8:00",
+        seats: 40,
+        status: "Active"
     }
 ];
 
@@ -134,7 +211,8 @@ function applyFilters(){
 
 }
 
- function updatePagination(totalRows){
+//pagination
+function updatePagination(totalRows){
     let totalPages = Math.ceil(totalRows / rowsPerPage);
 
     if(totalPages === 0){
@@ -151,19 +229,11 @@ function applyFilters(){
         end = 0;
     }
 
-    $("#paginationInfo").text(
-        `Showing ${start} to ${end} of ${totalRows} flights`
-    );
+    $("#paginationInfo").text(`Showing ${start} to ${end} of ${totalRows} flights`);
 
-    $("#previousPage").prop(
-        "disabled",
-        currentPage === 1
-    );
+    $("#previousPage").prop( "disabled", currentPage === 1);
 
-    $("#nextPage").prop(
-        "disabled",
-        currentPage === totalPages
-     );
+    $("#nextPage").prop("disabled", currentPage === totalPages);
 }
 
 function validateFlightForm() {
@@ -237,7 +307,7 @@ function validateFlightForm() {
     //route format validation
     // should be MNL - LAX, NOT MNL -> LAX or MNL to LAX
     // "-" checks the text input if it the hypen exist
-    if(!route.includes("-")){
+    if(!route.includes("-") || route.includes(">") || route.includes(" to ")){
         $("#routeError").text("Route format should be origin - destination (ex. MNL - LAX).");
         $("#route").addClass("is-invalid");
         valid = false;
@@ -265,6 +335,15 @@ function validateFlightForm() {
 }
 
 $(document).ready(function() {
+
+    console.log("Admin Flights Management Loaded.");
+
+    //sidebar toggle
+    $('#sidebarButton').click(function(e) {
+        e.stopPropagation();
+        $('#sidebar').toggleClass('hidden');
+        $('#adminFlightsMain').toggleClass('sidebar-open');
+    });
 
     updateStatistics();
     renderFlights(filteredFlights);
