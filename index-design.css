@@ -128,6 +128,56 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* Why Fly */
+#whyFly {
+    background: #a0b5d9;
+    padding: 40px 30px;
+}
+
+#whyFly h1 {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* Circle styling */
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.circle i {
+    font-size: 3rem;
+    color: #5686c9;
+    transition: all 0.3s ease;
+}
+
+.circle:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    background: #5686c9;
+}
+
+.circle:hover i {
+    color: white;
+}
+
+/* Circle text */
+.circle-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 12px;
+}
+
 /* Footer */
 footer {
     background: #1e293b;
