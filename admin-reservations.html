@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <!--CSS-->
-    <link rel="stylesheet" href="admin-users-reservations.css">
+    <link rel="stylesheet" href="admin-reservations-designs.css">
 </head>
 
 <body>
@@ -29,13 +29,14 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="#">Logout</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="top-bar-right">
-            <h3>Admin Panel - Users</h3>
+            <h3>Admin Panel - Reservations</h3>
             <i class="fas fa-plane-departure me-2"></i>
         </div>
     </div>
@@ -61,11 +62,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link-Users" href="#">Users</a>
+                <a class="nav-link-Users" href="admin-users.html">Users</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link-Reservations" href="reservations.html">Reservations</a>
+                <a class="nav-link-Reservations" href="#">Reservations</a>
             </li>
         </ul>
     </nav>
@@ -76,62 +77,41 @@
 
     <h1>Reservations</h1>
 
-    <!--Stat Cards-->
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Reservations</h5>
-                    <p class="card-text">10</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Cancelled Reservations</h5>
-                    <p class="card-text">4</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!--Reservations Table-->
     <div class="reservations-table-container">
         <div class="table-header">
             <div class="row g-3 mb-3">
                 <!--Search-->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <input type="text" class="form-control" id="searchReservations" placeholder="Search Reservations...">
                 </div>
 
                 <!--filter thing-->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <select class="form-select" id="filterReservations">
                         <option value="all">All Reservations</option>
-                        <option value="pending">Pending Reservations</option>
-                        <option value="confirmed">Confirmed Reservations</option>
-                        <option value="cancelled">Cancelled Reservations</option>
+                        <option value="Confirmed">Confirmed Reservations</option>
+                        <option value="Cancelled">Cancelled Reservations</option>
                     </select>
                 </div>
 
                  <!--Sort by dropdown-->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <select class="form-select" id="sortReservations">
-                        <option value="reservation_id">Sort by Reservation ID</option>
-                        <option value="flight_id">Sort by Flight ID</option>
-                        <option value="meal_id">Sort by Meal ID</option>
                         <option value="book_ref">Sort by Booking Reference</option>
-                        <option value="trip_type">Sort by Trip Type</option>
-                        <option value="booking_date">Sort by Booking Date</option>
+                        <option value="pass_name">Sort by Passenger Name</option>
+                        <option value="flight_route">Sort by Flight Route</option>
+                        <option value="seat_no">Sort by Seat Number</option>
                         <option value="status">Sort by Status</option>
+                        <option value="total_price">Sort by Total Price</option>
                     </select>
                 </div>
 
-                <!--Edit Reservation-->
-                <div class="col-md-4">
-                    <button class="btn btn-primary" id="editReservationBtn">Edit</button>
+                <!--Action Buttons-->
+                <div class="col-md-3">
+                    <button class="btn btn-warning w-100" id="editReservationBtn">
+                        <i class="bi bi-pencil-fill"></i> Edit
+                    </button>
                 </div>
             </div>
         </div>
@@ -140,15 +120,15 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Reservation ID</th>
-                        <th>Flight ID</th>
                         <th>Booking Reference</th>
-                        <th>Trip Type</th>
-                        <th>Booking Date</th>
+                        <th>Passenger Name</th>
+                        <th>Flight Route</th>
+                        <th>Seat Number</th>
                         <th>Status</th>
+                        <th>Total Price</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="reservationsTableBody">
                     <!--Populate table rows with reservation data via jquery-->
                 </tbody>
             </table>
