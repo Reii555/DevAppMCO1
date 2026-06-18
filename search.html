@@ -38,7 +38,7 @@
 
                 <div class="collapse navbar-collapse" id="mainMenu">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> <!--- will edit -->
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> 
                         <li class="nav-item"><a class="nav-link active" href="search.html">Search Flights</a></li>
                         <li class="nav-item"><a class="nav-link" href="reservation.html">My Reservation</a></li>
                         <li class="nav-item"><a class="nav-link" href="profile.html">User Profile</a></li>
@@ -190,9 +190,9 @@
 
                         </div>
 
-                        <a href="booking.html" class="btn btn-success w-100 mt-4" id="searchBtn">
-                        Search Flights
-                        </a>  
+                        <button type="button" id="searchBtn" class="btn btn-success w-100 mt-4">
+                            Search Flights
+                        </button>
 
                     </form>
 
@@ -295,7 +295,7 @@
 
                             <label class="form-label small">Showing # Flights</label>
 
-                            <select class="form-select mb-3">
+                            <select class="form-select mb-3" id="sortSelect">
                                 <option>Price ↑</option>
                                 <option>Price ↓</option>
                                 <option>Departure Time ↑</option>
@@ -303,9 +303,6 @@
                                 <option>Durations ↑</option>
                                 <option>Durations ↓</option>
                             </select>
-
-
-                            
 
                             <div id="flightResults"></div>
                             </div>
