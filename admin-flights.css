@@ -122,6 +122,10 @@ body {
     gap: 4px;
 }
 
+.sidebar-nav .nav-link {
+    color: #1e293b;
+}
+
 .nav-section-title {
     font-size: 0.7rem;
     font-weight: 700;
@@ -152,8 +156,7 @@ body {
 }
 
 .nav-item a.active {
-    background: #5686c9;
-    color: white;
+    color: #1e293b;
 }
 
 /* Main Content */

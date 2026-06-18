@@ -148,8 +148,7 @@ body {
 }
 
 .nav-item a.active {
-    background: #5686c9;
-    color: white;
+    color: #1e293b;
 }
 
 /* Main */
