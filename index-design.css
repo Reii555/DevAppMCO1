@@ -46,14 +46,14 @@ body {
     font-weight: 700;
 }
 
-/* Style the form labels */
+/* Form Labels */
 #searchFlightContainer .form-label {
     font-weight: 600;
     color: #1e293b;
     margin-bottom: 4px;
 }
 
-/* Style the form inputs */
+/* Form Inputs */
 #searchFlightContainer .form-control {
     border-radius: 8px;
     border: 1px solid #cbd5e1;
@@ -77,7 +77,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* Style the search button */
+/* Search Button */
 #searchFlightContainer .btn-primary {
     background: #5686c9;
     border: none;
@@ -470,7 +470,6 @@ body {
     margin-right: 2px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .stat-card {
         padding: 20px;
@@ -635,7 +634,6 @@ body {
     border-radius: 10px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .promo-slide {
         flex-direction: column;
@@ -685,6 +683,75 @@ body {
     .promo-slide .btn-light {
         font-size: 0.9rem;
         padding: 8px 20px;
+    }
+}
+
+/* Booking Steps */
+#bookSteps {
+    background: #a0b5d9;
+    padding: 30px;
+}
+
+#bookSteps h2 {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* Step Items */
+.step-item {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 16px;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.step-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Step Circle */
+.step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5686c9, #3b6ea8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Step Title */
+.step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+/* Sttep Arrows */
+.step-arrow-wrapper {
+    height: 80px;
+}
+
+.step-arrow {
+    color: black;
+    font-size: 1.8rem;
+    opacity: 0.4;
+}
+
+@media (max-width: 576px) {
+    
+    .step-title {
+        font-size: 0.9rem;
+    }
+    
+    .step-desc {
+        font-size: 0.8rem;
     }
 }
 
