@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('#sidebarButton').click(function(e) {
         e.stopPropagation();
         $('#sidebar').toggleClass('hidden');
-        $('#adminFlightsMain').toggleClass('sidebar-open');
+        $('#adminDashboard').toggleClass('sidebar-open');
     });
 
     $(".close-btn").click(function() {
