@@ -74,12 +74,22 @@ $(document).ready(function() {
             status: 'active'
         },
         {
-            id: 8,
+            id: 7,
             name: 'Hiromi Higuruma',
             email: 'hiroSoPogi@mail.ggg',
             phone: '0917167676',
             created_at: '2025-05-03 10:30:00',
             last_login: '2026-05-02 04:16:00',
+            role: 'customer',
+            status: 'active'
+        },
+        {
+            id: 8,
+            name: 'Reina Lagos',
+            email: 'ReiforHiro@mail.ggg',
+            phone: '09171741466',
+            created_at: '2025-05-02 10:30:00',
+            last_login: '2026-05-03 04:13:00',
             role: 'customer',
             status: 'active'
         },
@@ -184,18 +194,18 @@ $(document).ready(function() {
         const end = Math.min(currentPage * rowsPerPage, total);
 
         // Update pagination info text
-        if (total === 0) {
-            $('#paginationInfo').text('Showing 0 users');
-        } else {
-            $('#paginationInfo').text(`Showing ${start} to ${end} of ${total} users`);
-        }
-        
-        // Update current page display
-        $('#currentPage').text(currentPage);
+    if (total === 0) {
+        $('#paginationInfo').text('Showing 0 users');
+    } else {
+        $('#paginationInfo').text(`Showing ${start} to ${end} of ${total} users (Page ${currentPage} of ${totalPages})`);
+    }
+    
+    // Update current page display
+    $('#currentPage').text(currentPage);
 
-        // Enable/disable Previous and Next buttons
-        $('#previousPage').prop('disabled', currentPage <= 1);
-        $('#nextPage').prop('disabled', currentPage >= totalPages);
+    // Enable/disable Previous and Next buttons
+    $('#previousPage').prop('disabled', currentPage <= 1);
+    $('#nextPage').prop('disabled', currentPage >= totalPages);
     }
 
     // event handlerz
