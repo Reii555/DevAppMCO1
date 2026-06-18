@@ -77,6 +77,22 @@ $(document).ready(function() {
             status: "Confirmed",
             total_price: 8000.00,
         },
+        {
+            booking_ref: "ZZXCV09876",
+            pass_name: "Meet Skiey",
+            flight_route: "JP to NYC",
+            seat_no: "11C",
+            status: "Cancelled",
+            total_price: 8000.00,
+        },
+        {
+            booking_ref: "YUHJK54321",
+            pass_name: "Diluc Ragnvindir",
+            flight_route: "SK to AKL",
+            seat_no: "18A",
+            status: "Confirmed",
+            total_price: 80000.00,
+        },
     ];
 
     let currentPage = 1;
