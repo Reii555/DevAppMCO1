@@ -505,11 +505,13 @@ body {
     background: #a0b5d9;
     padding: 40px 30px;
     border-radius: 20px;
+    position: relative;
 }
 
 #promoCarousel h2 {
     color: #1e293b;
     font-weight: 700;
+    margin-bottom: 30px;
 }
 
 /* Promo Slide */
@@ -517,7 +519,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 50px;
+    padding: 40px 100px;
     min-height: 300px;
     border-radius: 20px;
     color: white;
@@ -526,6 +528,7 @@ body {
 .promo-content {
     flex: 1;
     z-index: 1;
+    max-width: 70%;
 }
 
 .promo-badge {
