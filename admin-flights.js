@@ -4,9 +4,9 @@ let flights = [
         flightId: "PR101",
         airline: "Philippine Airlines",
         route: "MNL - JFK",
-        departureDate: "May 27, 2026",
+        departureDate: "2026-05-27",
         departureTime: "08:00",
-        arrivalDate: "May 28, 2026",
+        arrivalDate: "2026-05-28",
         arrivalTime: "16:00",
         seats: 35,
         status: "Active"
@@ -15,9 +15,9 @@ let flights = [
         flightId: "5J205",
         airline: "Cebu Pacific",
         route: "MNL - TKO",
-        departureDate: "May 27, 2026",
+        departureDate: "2026-05-27",
         departureTime: "09:00",
-        arrivalDate: "May 27, 2026",
+        arrivalDate: "2026-05-27",
         arrivalTime: "17:00",
         seats: 35,
         status: "Delayed"
@@ -26,9 +26,9 @@ let flights = [
         flightId: "AK555",
         airline: "AirAsia",
         route: "MNL - HKG",
-        departureDate: "May 28, 2026",
+        departureDate: "2026-05-28",
         departureTime: "10:00",
-        arrivalDate: "May 29, 2026",
+        arrivalDate: "2026-05-29",
         arrivalTime: "08:00",
         seats: 35,
         status: "Active"
@@ -171,43 +171,93 @@ function validateFlightForm() {
 
     $(".text-danger").text("");
 
+    $(".form-control").removeClass("is-invalid");
+    $(".form-select").removeClass("is-invalid");
+
     let flightId = $("#flightId").val().trim();
-    let airline = $("#flightId").val().trim();
-    let route = $("#flightId").val().trim();
-    let departureDate = $("#flightId").val();
-    let departureTime = $("#flightId").val();
+    let airline = $("#airline").val().trim();
+    let route = $("#route").val().trim();
+    let departureDate = $("#departureDate").val();
+    let departureTime = $("#departureTime").val();
     let arrivalDate = $("#arrivalDate").val();
     let arrivalTime = $("#arrivalTime").val();
-    let seat = $("#seats").val();
+    let seats = $("#seats").val();
     let status = $("#status").val();
 
+    //empty inputs
     if (flightId === ""){
-        "Flight ID is required.";
+        $("#flightIdError").text("Flight ID is required.");
+        $("#flightId").addClass("is-invalid");
         valid = false;
     }
     if (airline === ""){
-        "Airline name is required.";
+        $("#airlineError").text("Airline name is required.");
+        $("#airline").addClass("is-invalid");
         valid = false;
     }
     if (route === ""){
-        "Flight route is required.";
+        $("#routeError").text("Flight route is required.");
+        $("#route").addClass("is-invalid");
         valid = false;
     }
     if (departureDate === "" || departureTime === "") {
-        "Departure time is required.";
+        $("#departureError").text("Departure time is required.");
+        $("#departureDate").addClass("is-invalid");
+        $("#departureTime").addClass("is-invalid");
         valid = false;
     }
     if (arrivalDate === "" || arrivalTime == "") {
-        "Arrival time is required.";
+        $("#arrivalError").text("Arrival time is required.");
+        $("#arrivalDate").addClass("is-invalid");
+        $("#arrivalTime").addClass("is-invalid");
         valid = false;
     }
     if (seats === "" || seats === 0){
-        "Seats should be more than 1.";
+        $("#seatsError").text("Seats should be at least more than 0.");
+        $("#seats").addClass("is-invalid");
         valid = false;
     }
     if (status === "") {
-        "Flight status is required.";
+        $("#statusError").text("Flight status is required.");
+        $("#status").addClass("is-invalid");
         valid = false;
+    }
+
+    //flight id dupes
+    let duplicate = flights.some(function(flight){
+        return flight.flightId === flightId;
+    });
+
+    if(!editMode && duplicate){
+        $("#flightIdError").text("Flight ID already exists.");
+        $("#flightId").addClass("is-invalid");
+        valid = false;
+    }
+
+    //route format validation
+    // should be MNL - LAX, NOT MNL -> LAX or MNL to LAX
+    // "-" checks the text input if it the hypen exist
+    if(!route.includes("-")){
+        $("#routeError").text("Route format should be origin - destination (ex. MNL - LAX).");
+        $("#route").addClass("is-invalid");
+        valid = false;
+    }
+
+    //date validations
+    //arrival date should NOT be before departure date
+    //if both departureDate and arrivalDate occurs within the day,
+    //arrivalTime should NOT be have the same time or before departureTime
+    $("#arrivalError").text("");
+    if(departureDate > arrivalDate){
+        $("#arrivalError").text("Arrival Date should be after or same as Departure Date.");
+        $("#arrivalDate").addClass("is-invalid");
+        valid = false;
+    } else if (departureDate === arrivalDate){
+        if(departureTime >= arrivalTime){
+            $("#arrivalError").text("Arrival Time should be after Departure Time.");
+            $("#arrivalTime").addClass("is-invalid");
+            valid = false;
+        }
     }
 
     return valid;
@@ -285,14 +335,15 @@ $(document).ready(function() {
 
     $("#saveFlight").click(function () {
 
+        //checks input validations before saving
         if(!validateFlightForm()){
             return;
         }
 
         let flightData = {
-            flightId: $("#flightId").val(),
-            airline: $("#airline").val(),
-            route: $("#route").val(),
+            flightId: $("#flightId").val().trim(),
+            airline: $("#airline").val().trim(),
+            route: $("#route").val().trim(),
             departureDate: $("#departureDate").val(),
             departureTime: $("#departureTime").val(),
             arrivalDate: $("#arrivalDate").val(),
