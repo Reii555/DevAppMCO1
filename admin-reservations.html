@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
+    <title>AnimoSkies Admin - Reservations</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!--CSS-->
     <link rel="stylesheet" href="admin-users-reservations.css">
 </head>
 
 <body>
+
+    <!--Top Bar-->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <button class="toggle-sidebar-btn" id="sidebarButtones">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="admin-user-dropdown">
+                <button class="btn admin-user-btn dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle"></i> Admin
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="top-bar-right">
+            <h3>Admin Panel - Users</h3>
+            <i class="fas fa-plane-departure me-2"></i>
+        </div>
+    </div>
+
 
 <!--SIDEBAR-->
 
@@ -15,19 +47,17 @@
     <nav class="sidebar-nav">
 
         <!--Dashboard Section-->
-        <div class="nav-section-title">Dashboard</div>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link-FlightAnalytics" href="admin-dashboard.html">Dashboard</a>
+                <a class="nav-link-Dashboard" href="admin-dashboard.html">Dashboard</a>
             </li>
         </ul>
 
         <!--Manage Section-->
-
         <div class="nav-section-title">Manage</div>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link-Flights" href="#">Flights</a>
+                <a class="nav-link-Flights" href="admin-flights.html">Flights</a>
             </li>
 
             <li class="nav-item">
@@ -35,15 +65,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link-Reservations" href="#">Reservations</a>
-            </li>
-        </ul>
-
-        <!--Analytics Section-->
-        <div class="nav-section-title">Analytics</div>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link-FlightAnalytics" href="#">Analytics</a>
+                <a class="nav-link-Reservations" href="reservations.html">Reservations</a>
             </li>
         </ul>
     </nav>
@@ -52,43 +74,118 @@
 <!--Main-->
 <div class="Admin-panel-reservations-main" id="adminReservationsMain">
 
-    <!--Top Bar-->
-    <div class="Admin-panel-reservations-top-bar">
-        <div class="top-bar-left">
-            <button class="toggle-sidebar-btn" id="sidebarButtones">
-                <i class="fas fa-bars"></i>
-            </button>
+    <h1>Reservations</h1>
 
-            <!--insert admin pfp w/ dropdown for logout-->
-
+    <!--Stat Cards-->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Reservations</h5>
+                    <p class="card-text">10</p>
+                </div>
+            </div>
         </div>
-
-        <div class="top-bar-right">
-            <h1>Admin Panel - Reservations</h1>
-            <i class="fas fa-plane-departure me-2"></i>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cancelled Reservations</h5>
+                    <p class="card-text">4</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <h1>Reservations</h1>
+    <!--Reservations Table-->
+    <div class="reservations-table-container">
+        <div class="table-header">
+            <div class="row g-3 mb-3">
+                <!--Search-->
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="searchReservations" placeholder="Search Reservations...">
+                </div>
 
-    <!--Content-->
-    <div class="Admin-panel-reservations-content">
-        <div class="reservation-cards">
-            <!--insert cards for total reservation and cancelled-->
+                <!--filter thing-->
+                <div class="col-md-4">
+                    <select class="form-select" id="filterReservations">
+                        <option value="all">All Reservations</option>
+                        <option value="pending">Pending Reservations</option>
+                        <option value="confirmed">Confirmed Reservations</option>
+                        <option value="cancelled">Cancelled Reservations</option>
+                    </select>
+                </div>
+
+                 <!--Sort by dropdown-->
+                <div class="col-md-4">
+                    <select class="form-select" id="sortReservations">
+                        <option value="reservation_id">Sort by Reservation ID</option>
+                        <option value="flight_id">Sort by Flight ID</option>
+                        <option value="meal_id">Sort by Meal ID</option>
+                        <option value="book_ref">Sort by Booking Reference</option>
+                        <option value="trip_type">Sort by Trip Type</option>
+                        <option value="booking_date">Sort by Booking Date</option>
+                        <option value="status">Sort by Status</option>
+                    </select>
+                </div>
+
+                <!--Edit Reservation-->
+                <div class="col-md-4">
+                    <button class="btn btn-primary" id="editReservationBtn">Edit</button>
+                </div>
+            </div>
         </div>
 
         <div class="reservations-table">
-            <div class="table-header">
-                <!--Search and Filter Options-->
-                <!--sort by thing-->
-            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Reservation ID</th>
+                        <th>Flight ID</th>
+                        <th>Booking Reference</th>
+                        <th>Trip Type</th>
+                        <th>Booking Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Populate table rows with reservation data via jquery-->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center mt-3">
 
-            <!--rest of the table shenanigans-->
+            <span id="paginationInfo">Showing 1 of 2 to 10 Reservations </span>
 
-            <div class="table-footer">
-                <!--insert table footer for pagination-->
+                <nav>
+                    <ul class="pagination mb-0">
+                        <li class="page-item">
+                            <button class="page-link" id="previousPage">Previous</button>
+                        </li>
+
+                        <li class="page-item">
+                            <span class="page-link" id="currentPage">1</span>
+                        </li>
+
+                        <li class="page-item">
+                            <button class="page-link" id="nextPage">Next</button>
+                        </li>
+                    </ul>
+                </nav>
         </div>
     </div>
+
+</div>
+
+<!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!--Bootstrap 5 Bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--EXTERNAL JAVASCRIPT-->
+    <script src="admin-reservations-script.js"></script>
 
 </body>
 
