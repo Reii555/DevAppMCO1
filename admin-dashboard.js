@@ -1,6 +1,13 @@
 $(document).ready(function() {
     console.log("Admin Dashboard Loaded");
 
+    //sidebar toggle
+    $('#sidebarButton').click(function(e) {
+        e.stopPropagation();
+        $('#sidebar').toggleClass('hidden');
+        $('#adminFlightsMain').toggleClass('sidebar-open');
+    });
+
     $(".close-btn").click(function() {
         alert("Close button clicked.");
     });
